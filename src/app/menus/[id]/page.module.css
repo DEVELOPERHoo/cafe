@@ -1,0 +1,18 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 가로 10개 */
+  gap: 16px;
+  max-height: 70vh; /* 원하는 높이 설정 */
+  overflow-y: scroll; /* 세로 스크롤 활성화 */
+  padding: 16px;
+}
+
+.menu_img_container {
+  text-align: center;
+  gap: 16px;
+}
+
+.title {
+  font-size: large;
+  font-weight: bold;
+}

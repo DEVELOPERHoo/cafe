@@ -1,0 +1,13 @@
+.container {
+  gap: 15px;
+  color: black;
+  text-decoration: none;
+}
+
+.container img {
+  width: 80px;
+}
+
+.title {
+  font-weight: bold;
+}
