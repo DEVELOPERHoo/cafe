@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 async function MenuList({ cafeId }: { cafeId: string }) {
-  const response = await fetch(`http://13.125.124.101:12040/menus/${cafeId}`, {
+  const response = await fetch(`https://king-seungkyu.shop/menus/${cafeId}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
@@ -16,21 +16,22 @@ async function MenuList({ cafeId }: { cafeId: string }) {
   const allMenus = await response.json();
   console.log(allMenus);
   return (
-    <div className={style.container}>
-      {allMenus.map((menu: MenuData) => (
-        <div className={style.menu_img_container} key={menu.id}>
-          <Image
-            src={menu.img}
-            width={85}
-            height={105}
-            alt={`메뉴 ${menu.name}의 이미지`}
-          />
-          <div>
-            <div>{menu.name}</div>
-          </div>
-        </div>
-      ))}
-    </div>
+    <></>
+    // <div className={style.container}>
+    //   {allMenus.map((menu: MenuData) => (
+    //     <div className={style.menu_img_container} key={menu.id}>
+    //       <Image
+    //         src={menu.img}
+    //         width={85}
+    //         height={105}
+    //         alt={`메뉴 ${menu.name}의 이미지`}
+    //       />
+    //       <div>
+    //         <div>{menu.name}</div>
+    //       </div>
+    //     </div>
+    //   ))}
+    // </div>
   );
 }
 

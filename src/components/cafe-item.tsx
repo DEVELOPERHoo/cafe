@@ -2,7 +2,7 @@ import type { CafeData } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import style from "./cafe-item.module.css";
-export default function CafeItem({ id, name, img }: CafeData) {
+export default function CafeItem({ id, name, img, url }: CafeData) {
   return (
     <Link href={`/menus/${id}`} className={style.container}>
       <Image

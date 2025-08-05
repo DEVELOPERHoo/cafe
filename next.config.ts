@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
-    domains: ["mmthcoffee.com"],
+    domains: ["mmthcoffee.com", "www.mega-mgccoffee.com"],
   },
 };
 

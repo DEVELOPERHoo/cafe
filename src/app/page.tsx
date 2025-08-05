@@ -3,7 +3,7 @@ import type { CafeData } from "@/types";
 import style from "./page.module.css";
 
 async function AllCafes() {
-  const response = await fetch("http://13.125.124.101:12040/cafes", {
+  const response = await fetch("https://king-seungkyu.shop/cafes", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
@@ -15,20 +15,18 @@ async function AllCafes() {
   const allCafes = await response.json();
 
   return (
-    <div>
+    <>
       {allCafes.map((cafe: CafeData) => (
         <CafeItem key={cafe.id} {...cafe} />
       ))}
-    </div>
+    </>
   );
 }
 
 export default function Home() {
   return (
     <div className={style.container}>
-      <section>
-        <AllCafes />
-      </section>
+      <AllCafes />
     </div>
   );
 }
