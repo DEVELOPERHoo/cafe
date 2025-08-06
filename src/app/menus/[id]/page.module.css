@@ -1,21 +1,7 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   max-width: 1300px;
   margin: 0 auto;
-}
-
-.tab {
-  display: flex;
-  list-style: none;
-}
-
-.menu_img_container {
-  text-align: center;
-  gap: 16px;
-}
-
-.title {
-  font-size: large;
-  font-weight: bold;
 }

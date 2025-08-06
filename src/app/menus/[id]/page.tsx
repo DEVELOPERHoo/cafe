@@ -18,11 +18,14 @@ async function MenuList({ cafeId }: { cafeId: string }) {
   );
 
   return (
-    <ul className={style.tab}>
-      {sortedAllMenus.map((data: MenuData, idx: number) => (
-        <CategoryTab key={idx} {...data} />
-      ))}
-    </ul>
+    // <div className={style.tab}>
+    //   {sortedAllMenus.map((data: MenuData, idx: number) => (
+    //     <CategoryTab key={idx} {...data} />
+    //   ))}
+    // </div>
+    <div>
+      <CategoryTab data={sortedAllMenus} />
+    </div>
   );
 }
 
