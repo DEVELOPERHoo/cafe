@@ -1,7 +1,6 @@
 import { MenuData } from "@/types";
+import CategoryTab from "@/components/category-tab";
 import style from "./page.module.css";
-import Image from "next/image";
-import Link from "next/link";
 
 async function MenuList({ cafeId }: { cafeId: string }) {
   const response = await fetch(`https://king-seungkyu.shop/menus/${cafeId}`, {
@@ -14,24 +13,16 @@ async function MenuList({ cafeId }: { cafeId: string }) {
   }
 
   const allMenus = await response.json();
-  console.log(allMenus);
+  const sortedAllMenus = [...allMenus].sort(
+    (a, b) => a.category.sortOrder - b.category.sortOrder
+  );
+
   return (
-    <></>
-    // <div className={style.container}>
-    //   {allMenus.map((menu: MenuData) => (
-    //     <div className={style.menu_img_container} key={menu.id}>
-    //       <Image
-    //         src={menu.img}
-    //         width={85}
-    //         height={105}
-    //         alt={`메뉴 ${menu.name}의 이미지`}
-    //       />
-    //       <div>
-    //         <div>{menu.name}</div>
-    //       </div>
-    //     </div>
-    //   ))}
-    // </div>
+    <ul className={style.tab}>
+      {sortedAllMenus.map((data: MenuData, idx: number) => (
+        <CategoryTab key={idx} {...data} />
+      ))}
+    </ul>
   );
 }
 
@@ -41,7 +32,7 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   return (
-    <div>
+    <div className={style.container}>
       <MenuList cafeId={(await params).id} />
     </div>
   );

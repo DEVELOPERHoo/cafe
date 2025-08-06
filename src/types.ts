@@ -1,3 +1,4 @@
+// 카페 목록 타입
 export interface CafeData {
   id: string;
   name: string;
@@ -5,6 +6,7 @@ export interface CafeData {
   url: string;
 }
 
+// 메뉴데이터 타입(카테고리, 메뉴리스트)
 export interface MenuData {
   category: {
     name: string;
@@ -13,6 +15,7 @@ export interface MenuData {
   menus: MenuItem[];
 }
 
+// 메뉴 타입
 export interface MenuItem {
   nameKr: string;
   nameEn: string;
