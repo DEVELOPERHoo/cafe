@@ -23,11 +23,16 @@ export default function CategoryTab(data: Props) {
       <div className={style.tab}>
         {sortedCategories.map((data, idx) => (
           <div
-            className={style.container}
+            //className={style.container}
             key={data.category.name}
             onClick={() => {
               setSelectedIndex(idx);
             }}
+            className={
+              selectedIndex == idx
+                ? `${style.container} ${style.selected}`
+                : style.container
+            }
           >
             {data.category.name}
           </div>

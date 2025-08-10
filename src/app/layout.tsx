@@ -12,7 +12,7 @@ export default function RootLayout({
       <body>
         <div className={style.container}>
           <header>
-            <Link href={"/"}>☕ CAFE</Link>
+            <Link href={"/"}>☕ MOMASIL</Link>
           </header>
           <main>{children}</main>
           <footer>
