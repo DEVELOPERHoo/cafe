@@ -1,12 +1,16 @@
 import { MenuData } from "@/types";
 import CategoryTab from "@/components/category-tab";
 import style from "./page.module.css";
+import Searchbar from "@/components/searchbar";
 
 async function MenuList({ cafeId }: { cafeId: string }) {
-  const response = await fetch(`https://king-seungkyu.shop/menus/${cafeId}`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
+  const response = await fetch(
+    `${process.env.CAFE_API_SERVER_URL}/menus/${cafeId}`,
+    {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
 
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
@@ -18,11 +22,6 @@ async function MenuList({ cafeId }: { cafeId: string }) {
   );
 
   return (
-    // <div className={style.tab}>
-    //   {sortedAllMenus.map((data: MenuData, idx: number) => (
-    //     <CategoryTab key={idx} {...data} />
-    //   ))}
-    // </div>
     <div>
       <CategoryTab data={sortedAllMenus} />
     </div>
@@ -35,8 +34,11 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   return (
-    <div className={style.container}>
-      <MenuList cafeId={(await params).id} />
+    <div>
+      <div className={style.container}>
+        <Searchbar />
+        <MenuList cafeId={(await params).id} />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import type { CafeData } from "@/types";
 import style from "./page.module.css";
 
 async function AllCafes() {
-  const response = await fetch("https://king-seungkyu.shop/cafes", {
+  const response = await fetch(`${process.env.CAFE_API_SERVER_URL}/cafes`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
