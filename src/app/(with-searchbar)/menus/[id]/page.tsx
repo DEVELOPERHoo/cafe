@@ -36,7 +36,7 @@ export default async function Page({
   return (
     <div>
       <div className={style.container}>
-        <Searchbar />
+        <Searchbar cafeId={(await params).id} />
         <MenuList cafeId={(await params).id} />
       </div>
     </div>

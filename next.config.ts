@@ -8,7 +8,12 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
-    domains: ["mmthcoffee.com", "www.mega-mgccoffee.com", "img.79plus.co.kr"],
+    domains: [
+      "mmthcoffee.com",
+      "www.mega-mgccoffee.com",
+      "img.79plus.co.kr",
+      "composecoffee.com",
+    ],
   },
 };
 

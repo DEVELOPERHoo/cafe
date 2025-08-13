@@ -46,6 +46,7 @@ export default function CategoryTab(data: Props) {
               width={200}
               height={200}
               alt={`${data.nameKr}의 표지 이미지`}
+              style={{ objectFit: "contain" }}
             />
             <div className={style.title}>{data.nameKr}</div>
           </div>

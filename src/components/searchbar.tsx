@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import style from "./searchbar.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function Searchbar() {
+export default function Searchbar({ cafeId }: { cafeId: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
@@ -21,7 +21,8 @@ export default function Searchbar() {
 
   const onSubmit = () => {
     if (!search || q === search) return; // 검색어가 없거나 현재 페이지와 같은 검색어 일경우 리턴
-    router.push(`/search?q=${search}`);
+    //router.push(`/search/q=${search}`);
+    router.push(`/search/${cafeId}?keyword=${search}`);
     //console.log(search);
   };
 
@@ -37,7 +38,7 @@ export default function Searchbar() {
         value={search}
         onChange={onChangeSearch}
         onKeyDown={onKeyDown}
-        placeholder="카워드로 검색"
+        placeholder="키워드로 검색"
       />
       {/* <button>검색</button> */}
     </div>
