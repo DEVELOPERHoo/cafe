@@ -1,7 +1,5 @@
-import { MenuData } from "@/types";
 import CategoryTab from "@/components/category-tab";
 import style from "./page.module.css";
-import Searchbar from "@/components/searchbar";
 
 async function MenuList({ cafeId }: { cafeId: string }) {
   const response = await fetch(
@@ -23,7 +21,7 @@ async function MenuList({ cafeId }: { cafeId: string }) {
 
   return (
     <div>
-      <CategoryTab data={sortedAllMenus} />
+      <CategoryTab sortAllMenus={sortedAllMenus} cafeId={cafeId} />
     </div>
   );
 }
@@ -36,7 +34,6 @@ export default async function Page({
   return (
     <div>
       <div className={style.container}>
-        <Searchbar cafeId={(await params).id} />
         <MenuList cafeId={(await params).id} />
       </div>
     </div>

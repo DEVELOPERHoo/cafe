@@ -3,14 +3,17 @@ import { MenuData } from "@/types";
 import style from "./category-tab.module.css";
 import { useState } from "react";
 import Image from "next/image";
+import Searchbar from "./searchbar";
 
 interface Props {
-  data: MenuData[];
+  sortAllMenus: MenuData[];
+  cafeId: string;
 }
-export default function CategoryTab(data: Props) {
+//export default function CategoryTab({ data, cafeId }: Props) {
+export default function CategoryTab({ sortAllMenus, cafeId }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const sortedCategories = [...data.data].sort(
+  const sortedCategories = [...sortAllMenus].sort(
     (a, b) => a.category.sortOrder - b.category.sortOrder
   );
 
@@ -37,6 +40,9 @@ export default function CategoryTab(data: Props) {
             {data.category.name}
           </div>
         ))}
+      </div>
+      <div>
+        <Searchbar cafeId={cafeId} size="S" />
       </div>
       <div className={style.menuList}>
         {selectedMenus.map((data, idx) => (

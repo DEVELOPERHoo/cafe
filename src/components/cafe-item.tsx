@@ -7,8 +7,8 @@ export default function CafeItem({ id, name, img, url }: CafeData) {
     <Link href={`/menus/${id}`} className={style.container}>
       <Image
         src={img}
-        width={80}
-        height={105}
+        width={150}
+        height={175}
         alt={`카페 ${name}의 표지 이미지`}
         style={{ objectFit: "contain" }}
       />

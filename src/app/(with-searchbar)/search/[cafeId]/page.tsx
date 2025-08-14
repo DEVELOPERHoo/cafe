@@ -1,3 +1,7 @@
+import SearchResultItem from "@/components/search-result-item";
+import style from "./page.module.css";
+import Searchbar from "@/components/searchbar";
+
 async function SearchResult({
   cafeType,
   keyword,
@@ -19,7 +23,11 @@ async function SearchResult({
 
   const searchResultmenus = await response.json();
 
-  console.log(searchResultmenus);
+  return (
+    <div>
+      <SearchResultItem items={searchResultmenus} />
+    </div>
+  );
 }
 
 export default async function Page({
@@ -31,7 +39,8 @@ export default async function Page({
 }) {
   return (
     <div>
-      <div>
+      <div className={style.container}>
+        <Searchbar cafeId={(await params).cafeId} size="L" />
         <SearchResult
           cafeType={(await params).cafeId}
           keyword={(await searchParams).keyword}

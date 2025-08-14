@@ -1,0 +1,13 @@
+.menuList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 가로 10개 */
+  gap: 16px;
+  padding: 16px;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 150px;
+}
+
+.title {
+  font-size: large;
+}

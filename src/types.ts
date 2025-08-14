@@ -22,3 +22,15 @@ export interface MenuItem {
   sortOrder: number;
   img: string; // 이미지 경로 (URL 형식)
 }
+
+export interface SearchResultMenuList {
+  SearchResultMenuList: SearchResultMenuItem[];
+}
+
+export interface SearchResultMenuItem {
+  cafeName: string;
+  categoryName: string;
+  nameKr: string;
+  nameEn: string;
+  img: string;
+}
