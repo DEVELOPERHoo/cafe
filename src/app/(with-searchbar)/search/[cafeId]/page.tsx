@@ -1,6 +1,8 @@
 import SearchResultItem from "@/components/search-result-item";
 import style from "./page.module.css";
 import Searchbar from "@/components/searchbar";
+import CategoryTab from "@/components/category-tab";
+import { Suspense } from "react";
 
 async function SearchResult({
   cafeType,
@@ -25,7 +27,8 @@ async function SearchResult({
 
   return (
     <div>
-      <SearchResultItem items={searchResultmenus} />
+      <CategoryTab allMenus={searchResultmenus} cafeId={cafeType} />
+      {/* <SearchResultItem items={searchResultmenus} /> 재사용성을 위한 주석 */}
     </div>
   );
 }
@@ -40,11 +43,13 @@ export default async function Page({
   return (
     <div>
       <div className={style.container}>
-        <Searchbar cafeId={(await params).cafeId} size="L" />
-        <SearchResult
-          cafeType={(await params).cafeId}
-          keyword={(await searchParams).keyword}
-        />
+        {/* <Searchbar cafeId={(await params).cafeId} size="L" /> 재사용성을 위한 주석 */}
+        <Suspense key={(await searchParams).keyword || ""} fallback="Loading">
+          <SearchResult
+            cafeType={(await params).cafeId}
+            keyword={(await searchParams).keyword || ""}
+          />
+        </Suspense>
       </div>
     </div>
   );

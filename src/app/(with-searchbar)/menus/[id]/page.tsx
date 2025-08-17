@@ -15,13 +15,10 @@ async function MenuList({ cafeId }: { cafeId: string }) {
   }
 
   const allMenus = await response.json();
-  const sortedAllMenus = [...allMenus].sort(
-    (a, b) => a.category.sortOrder - b.category.sortOrder
-  );
 
   return (
     <div>
-      <CategoryTab sortAllMenus={sortedAllMenus} cafeId={cafeId} />
+      <CategoryTab allMenus={allMenus} cafeId={cafeId} />
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function Searchbar({
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
 
-  const q = searchParams.get("q");
+  const q = searchParams.get("keyword");
 
   // q값이 있으면 q사용 없으면 빈문자열 사용
   useEffect(() => {
@@ -26,16 +26,18 @@ export default function Searchbar({
   };
 
   const onSubmit = () => {
-    if (size == "S") {
-      if (!search || q === search) return; // 검색어가 없거나 현재 페이지와 같은 검색어 일경우 리턴
-      router.push(`/search/${cafeId}?keyword=${search}`);
-    } else {
-      if (!search || q === search) {
-        router.push(`/menus/${cafeId}`);
-      } else {
-        router.push(`/search/${cafeId}?keyword=${search}`);
-      }
-    }
+    // if (size == "S") {
+    //   if (!search || q === search) return; // 검색어가 없거나 현재 페이지와 같은 검색어 일경우 리턴
+    //   router.push(`/search/${cafeId}?keyword=${search}`);
+    // } else {
+    //   if (!search || q === search) {
+    //     router.push(`/menus/${cafeId}`);
+    //   } else {
+    //     router.push(`/search/${cafeId}?keyword=${search}`);
+    //   }
+    // }
+    if (!search || q === search) router.push(`/menus/${cafeId}`);
+    router.push(`/search/${cafeId}?keyword=${search}`);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

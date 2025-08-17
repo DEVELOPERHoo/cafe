@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       "www.mega-mgccoffee.com",
       "img.79plus.co.kr",
       "composecoffee.com",
+      "www.theventi.co.kr",
     ],
   },
 };
