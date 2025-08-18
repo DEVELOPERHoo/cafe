@@ -52,7 +52,7 @@ export default function Searchbar({
         value={search}
         onChange={onChangeSearch}
         onKeyDown={onKeyDown}
-        placeholder="키워드로 검색"
+        placeholder="🔍"
         style={{
           width: size === "S" ? "300px" : "1300px",
         }}

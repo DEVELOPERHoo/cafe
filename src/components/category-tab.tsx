@@ -19,7 +19,21 @@ export default function CategoryTab({ allMenus, cafeId }: Props) {
     return <div>검색결과가 없습니다.</div>; // 그냥 완전 빈 화면
   }
 
-  const sortedCategories = [...allMenus].sort(
+  // flatMap 사용시 중첩 배열일때 데이터를 뽑아서 펼치기
+  const mergedMenus = allMenus.flatMap((item) => item.menus);
+
+  // sortOrder가 0인 전체 데이터 생성
+  const allCategory: MenuData = {
+    category: {
+      name: "전체",
+      sortOrder: 0,
+    },
+    menus: mergedMenus,
+  };
+
+  const withAllCategory = [allCategory, ...allMenus];
+
+  const sortedCategories = [...withAllCategory].sort(
     (a, b) => a.category.sortOrder - b.category.sortOrder
   );
 
