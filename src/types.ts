@@ -3,6 +3,7 @@ export interface CafeData {
   id: string;
   name: string;
   img: string;
+  banner: string;
   url: string;
 }
 

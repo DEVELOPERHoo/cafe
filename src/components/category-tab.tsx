@@ -62,7 +62,7 @@ export default function CategoryTab({ allMenus, cafeId }: Props) {
         ))}
       </div>
       <div>
-        <Searchbar cafeId={cafeId} size="S" />
+        <Searchbar cafeId={cafeId} />
       </div>
       <div className={style.menuList}>
         {selectedMenus.map((data, idx) => (

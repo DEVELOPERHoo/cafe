@@ -1,6 +1,4 @@
-import SearchResultItem from "@/components/search-result-item";
 import style from "./page.module.css";
-import Searchbar from "@/components/searchbar";
 import CategoryTab from "@/components/category-tab";
 import { Suspense } from "react";
 

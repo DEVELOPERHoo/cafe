@@ -3,13 +3,7 @@ import { useEffect, useState } from "react";
 import style from "./searchbar.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function Searchbar({
-  cafeId,
-  size,
-}: {
-  cafeId: string;
-  size: string;
-}) {
+export default function Searchbar({ cafeId }: { cafeId: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [search, setSearch] = useState("");
@@ -26,18 +20,11 @@ export default function Searchbar({
   };
 
   const onSubmit = () => {
-    // if (size == "S") {
-    //   if (!search || q === search) return; // 검색어가 없거나 현재 페이지와 같은 검색어 일경우 리턴
-    //   router.push(`/search/${cafeId}?keyword=${search}`);
-    // } else {
-    //   if (!search || q === search) {
-    //     router.push(`/menus/${cafeId}`);
-    //   } else {
-    //     router.push(`/search/${cafeId}?keyword=${search}`);
-    //   }
-    // }
-    if (!search || q === search) router.push(`/menus/${cafeId}`);
-    router.push(`/search/${cafeId}?keyword=${search}`);
+    if (!search || q === search) {
+      router.push(`/menus/${cafeId}`);
+    } else {
+      router.push(`/search/${cafeId}?keyword=${search}`);
+    }
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -53,9 +40,6 @@ export default function Searchbar({
         onChange={onChangeSearch}
         onKeyDown={onKeyDown}
         placeholder="🔍"
-        style={{
-          width: size === "S" ? "300px" : "1300px",
-        }}
       />
     </div>
   );
