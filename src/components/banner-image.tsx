@@ -7,7 +7,7 @@ export default function BannerImage({ id, name, img, banner, url }: CafeData) {
     <div className={style.container}>
       <Image
         src={banner}
-        width={1100}
+        width={900}
         height={250}
         alt={`카페 ${name}의 배너 이미지`}
         style={{ objectFit: "contain" }}

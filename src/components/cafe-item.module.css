@@ -1,4 +1,6 @@
 .container {
+  display: inline-block;
+  overflow: hidden;
   padding: 30px;
   color: black;
   text-decoration: none;
@@ -9,4 +11,12 @@
 .title {
   font-weight: bold;
   text-align: center;
+}
+
+.image {
+  transition: transform 0.2s ease-in-out;
+}
+
+.image:hover {
+  transform: scale(1.2);
 }

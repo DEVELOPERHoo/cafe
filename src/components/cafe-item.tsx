@@ -11,6 +11,7 @@ export default function CafeItem({ id, name, img, url }: CafeData) {
         height={175}
         alt={`카페 ${name}의 표지 이미지`}
         style={{ objectFit: "contain" }}
+        className={style.image}
       />
       <div>
         <div className={style.title}>{name}</div>
