@@ -1,12 +1,11 @@
 .container {
-  padding: 10px;
-  width: 130px;
+  flex: 1;
+  padding: 6px;
   height: 40px;
-  min-width: 120px;
   text-align: center;
-  font-size: 17px;
+  font-size: 16px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-right: none;
   transition: backgroud-color 0.3s ease;
   cursor: pointer;
@@ -31,6 +30,15 @@
   margin-top: 50px;
   text-align: center;
   margin-bottom: 150px;
+}
+
+.menu {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu:hover {
+  transform: scale(1.1);
 }
 
 .title {

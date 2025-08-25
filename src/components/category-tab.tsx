@@ -66,7 +66,7 @@ export default function CategoryTab({ allMenus, cafeId }: Props) {
       </div>
       <div className={style.menuList}>
         {selectedMenus.map((data, idx) => (
-          <div key={idx}>
+          <div key={idx} className={style.menu}>
             <Image
               src={data.img}
               width={200}

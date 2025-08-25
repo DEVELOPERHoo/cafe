@@ -12,13 +12,13 @@ export default function RootLayout({
       <body>
         <div className={style.container}>
           <header>
-            <Link href={"/"}>☕ MOMASIL</Link>
+            <div>
+              <Link href={"/"}>☕ MOMASIL</Link>
+            </div>
+            <div className={style.cart}>🛒</div>
           </header>
           <main>{children}</main>
-          <footer>
-            <div>제작 @경호, 승규</div>
-            <div>틈나서 만들어봄</div>
-          </footer>
+          <footer></footer>
         </div>
       </body>
     </html>
