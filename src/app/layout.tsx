@@ -1,6 +1,6 @@
-import Link from "next/link";
 import "./globals.css";
 import style from "./layout.module.css";
+import Header from "@/components/header";
 
 export default function RootLayout({
   children,
@@ -11,12 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className={style.container}>
-          <header>
-            <div>
-              <Link href={"/"}>☕ MOMASIL</Link>
-            </div>
-            <div className={style.cart}>🛒</div>
-          </header>
+          <Header />
           <main>{children}</main>
           <footer></footer>
         </div>
