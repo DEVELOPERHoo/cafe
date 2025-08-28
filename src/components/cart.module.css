@@ -12,6 +12,7 @@
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* Cart 열렸을 때 */
@@ -45,6 +46,8 @@
   padding: 16px;
   flex: 1;
   overflow-y: auto;
+  /* 카트 외에는 scroll 적용 X */
+  overscroll-behavior: contain;
 }
 
 .b_cnt {
@@ -65,4 +68,35 @@
 
 .b_cnt > em {
   font-style: normal;
+}
+
+.item {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.item > p {
+  font-size: medium;
+}
+
+.removeFromCartBtn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.shareCart {
+  background-color: #2c3e50;
+  color: #fff;
+  margin: 15px;
+  width: 100px;
+  height: 60px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: medium;
 }

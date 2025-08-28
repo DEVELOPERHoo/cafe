@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className={style.header}>
       <div>
-        <Link href={"/"}>☕ MOMASIL</Link>
+        <Link href={"/"}>☕MOMASIL</Link>
       </div>
       <div className={style.cart} onClick={() => setCartOpen(!cartOpen)}>
         🛒

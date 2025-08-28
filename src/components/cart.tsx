@@ -26,10 +26,20 @@ export default function Cart({ open, onClose }: CartProps) {
 
         {/* 내용 */}
         <div className={style.content}>
-          <p>상품 1</p>
-          <p>상품 2</p>
-          <p>상품 3</p>
+          <div className={style.item}>
+            <p>아이스아메리카노</p>
+            <button className={style.removeFromCartBtn}>✕</button>
+          </div>
+          <div className={style.item}>
+            <p>카페라떼</p>
+            <button className={style.removeFromCartBtn}>✕</button>
+          </div>
+          <div className={style.item}>
+            <p>디카페인 아이스아메리카노</p>
+            <button className={style.removeFromCartBtn}>✕</button>
+          </div>
         </div>
+        <button className={style.shareCart}>공유하기</button>
       </div>
     </>
   );
