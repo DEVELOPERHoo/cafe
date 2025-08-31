@@ -6,6 +6,7 @@ import Image from "next/image";
 import Searchbar from "./searchbar";
 import BacktotopButton from "./backtotop-button";
 import { useCartStore } from "@/store/cartStore";
+import { useCartUiStore } from "@/store/cartUiStore";
 
 interface Props {
   allMenus: MenuData[];
@@ -15,6 +16,7 @@ interface Props {
 export default function CategoryTab({ allMenus, cafeId }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const addToCart = useCartStore((state) => state.addToCart);
+  const openCart = useCartUiStore((state) => state.openCart);
 
   // 추후 작업 예정
   if (!allMenus || allMenus.length === 0) {
@@ -67,7 +69,14 @@ export default function CategoryTab({ allMenus, cafeId }: Props) {
       </div>
       <div className={style.menuList}>
         {selectedMenus.map((data, idx) => (
-          <div key={idx} className={style.menu} onClick={() => addToCart(data)}>
+          <div
+            key={idx}
+            className={style.menu}
+            onClick={() => {
+              addToCart(data);
+              openCart();
+            }}
+          >
             <Image
               src={data.img}
               width={200}

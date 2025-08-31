@@ -61,14 +61,10 @@
   font-size: 11px;
   line-height: 20px;
   position: relative;
-  right: -6px;
+  right: -4px;
   top: -2px;
   font-family: Arial;
   background-color: black;
-}
-
-.b_cnt > em {
-  font-style: normal;
 }
 
 .cartItem {

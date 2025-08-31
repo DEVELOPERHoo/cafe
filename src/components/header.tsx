@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 import style from "./header.module.css";
-import { useState } from "react";
 import Cart from "./cart";
+import { useCartUiStore } from "@/store/cartUiStore";
 
 export default function Header() {
-  const [cartOpen, setCartOpen] = useState(false);
+  const { open, toggleCart } = useCartUiStore();
 
   return (
     <>
@@ -13,10 +13,10 @@ export default function Header() {
         <div>
           <Link href={"/"}>☕MOMASIL</Link>
         </div>
-        <div className={style.cart} onClick={() => setCartOpen(!cartOpen)}>
+        <div className={style.cart} onClick={() => toggleCart(open)}>
           🛒
         </div>
-        <Cart open={cartOpen} onClose={() => setCartOpen(false)} />
+        <Cart />
       </header>
     </>
   );

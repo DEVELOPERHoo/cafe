@@ -2,14 +2,11 @@
 import { useCartStore } from "@/store/cartStore";
 import style from "./cart.module.css";
 import Image from "next/image";
+import { useCartUiStore } from "@/store/cartUiStore";
 
-interface CartProps {
-  open: boolean;
-  onClose: () => void;
-}
-
-export default function Cart({ open, onClose }: CartProps) {
+export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCartStore();
+  const { open, closeCart } = useCartUiStore();
 
   return (
     <>
@@ -19,11 +16,9 @@ export default function Cart({ open, onClose }: CartProps) {
         <div className={style.header}>
           <div className={style.title}>
             장바구니
-            <span className={style.b_cnt}>
-              <em>0</em>
-            </span>
+            <span className={style.b_cnt}>{cart.length}</span>
           </div>
-          <button onClick={onClose} className={style.closeBtn}>
+          <button onClick={closeCart} className={style.closeBtn}>
             ✕
           </button>
         </div>
