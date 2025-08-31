@@ -8,14 +8,16 @@ export default function Header() {
   const [cartOpen, setCartOpen] = useState(false);
 
   return (
-    <header className={style.header}>
-      <div>
-        <Link href={"/"}>☕MOMASIL</Link>
-      </div>
-      <div className={style.cart} onClick={() => setCartOpen(!cartOpen)}>
-        🛒
-      </div>
-      <Cart open={cartOpen} onClose={() => setCartOpen(false)} />
-    </header>
+    <>
+      <header className={style.header}>
+        <div>
+          <Link href={"/"}>☕MOMASIL</Link>
+        </div>
+        <div className={style.cart} onClick={() => setCartOpen(!cartOpen)}>
+          🛒
+        </div>
+        <Cart open={cartOpen} onClose={() => setCartOpen(false)} />
+      </header>
+    </>
   );
 }

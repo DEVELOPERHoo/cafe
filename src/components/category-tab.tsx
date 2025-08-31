@@ -5,6 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Searchbar from "./searchbar";
 import BacktotopButton from "./backtotop-button";
+import { useCartStore } from "@/store/cartStore";
 
 interface Props {
   allMenus: MenuData[];
@@ -13,6 +14,7 @@ interface Props {
 //export default function CategoryTab({ data, cafeId }: Props) {
 export default function CategoryTab({ allMenus, cafeId }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   // 추후 작업 예정
   if (!allMenus || allMenus.length === 0) {
@@ -40,7 +42,6 @@ export default function CategoryTab({ allMenus, cafeId }: Props) {
   const selectedMenus = [...sortedCategories[selectedIndex].menus].sort(
     (a, b) => a.sortOrder - b.sortOrder
   );
-
   return (
     <div>
       <div className={style.tab}>
@@ -66,7 +67,7 @@ export default function CategoryTab({ allMenus, cafeId }: Props) {
       </div>
       <div className={style.menuList}>
         {selectedMenus.map((data, idx) => (
-          <div key={idx} className={style.menu}>
+          <div key={idx} className={style.menu} onClick={() => addToCart(data)}>
             <Image
               src={data.img}
               width={200}

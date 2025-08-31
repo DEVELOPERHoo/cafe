@@ -18,6 +18,7 @@ export interface MenuData {
 
 // 메뉴 타입
 export interface MenuItem {
+  id: string;
   nameKr: string;
   nameEn: string;
   sortOrder: number;

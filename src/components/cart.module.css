@@ -27,6 +27,7 @@
 
 /* 헤더 */
 .header {
+  background: #f5f5f5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,18 +71,14 @@
   font-style: normal;
 }
 
-.item {
+.cartItem {
   height: 100px;
   display: flex;
+  padding: 2px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #e5e5e5;
 }
-
-.item > p {
-  font-size: medium;
-}
-
 .removeFromCartBtn {
   background: none;
   border: none;
@@ -99,4 +96,45 @@
   border: none;
   cursor: pointer;
   font-size: medium;
+}
+.cBtnContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 7px;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.clearBtn {
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.emptyCart {
+  text-align: center;
+  font-size: small;
+}
+
+.cartImage {
+  border: 2px solid #e5e5e5;
+  border-radius: 5px;
+}
+
+.cartTitle {
+  max-width: 120px;
+  font-size: 13px;
+  font-weight: 400;
+  display: -webkit-box; /* Flexbox 비슷하게 동작 */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 최대 2줄(비표준) */
+  line-clamp: 2; /* 최대 2줄(표준) */
+  overflow: hidden;
+  text-overflow: ellipsis; /*...으로 처리*/
+
+  line-height: 1.2; /* 줄 간격 줄이기 */
+  max-height: calc(1.2em * 2); /* line-height * 줄 수 */
 }
