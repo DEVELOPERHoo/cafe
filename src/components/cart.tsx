@@ -5,7 +5,13 @@ import Image from "next/image";
 import { useCartUiStore } from "@/store/cartUiStore";
 
 export default function Cart() {
-  const { cart, removeFromCart, clearCart } = useCartStore();
+  const {
+    cart,
+    removeFromCart,
+    clearCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCartStore();
   const { open, closeCart } = useCartUiStore();
 
   // cart의 모든 quantity의 합
@@ -49,9 +55,13 @@ export default function Cart() {
                   style={{ objectFit: "contain" }}
                   className={style.cartImage}
                 />
-                <div>
-                  <div className={style.cartTitle}>{item.nameKr}</div>
-                  <div className={style.menuQuantity}>{item.quantity}</div>
+                <div className={style.menuDetails}>
+                  <div className={style.menuTitle}>{item.nameKr}</div>
+                  <div className={style.quantityDetails}>
+                    <button onClick={() => decreaseQuantity(item.id)}>–</button>
+                    <div className={style.menuQuantity}>{item.quantity}</div>
+                    <button onClick={() => increaseQuantity(item.id)}>+</button>
+                  </div>
                 </div>
                 <button
                   className={style.removeFromCartBtn}
