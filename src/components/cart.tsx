@@ -8,6 +8,11 @@ export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCartStore();
   const { open, closeCart } = useCartUiStore();
 
+  // cart의 모든 quantity의 합
+  const totalQuantity = cart.reduce((sum, item) => {
+    return sum + item.quantity;
+  }, 0); // 초기값(initialValue)을 0으로 설정
+
   return (
     <>
       {/* 사이드 Cart */}
@@ -16,7 +21,7 @@ export default function Cart() {
         <div className={style.header}>
           <div className={style.title}>
             장바구니
-            <span className={style.b_cnt}>{cart.length}</span>
+            <span className={style.b_cnt}>{totalQuantity}</span>
           </div>
           <button onClick={closeCart} className={style.closeBtn}>
             ✕
@@ -44,7 +49,10 @@ export default function Cart() {
                   style={{ objectFit: "contain" }}
                   className={style.cartImage}
                 />
-                <div className={style.cartTitle}>{item.nameKr}</div>
+                <div>
+                  <div className={style.cartTitle}>{item.nameKr}</div>
+                  <div className={style.menuQuantity}>{item.quantity}</div>
+                </div>
                 <button
                   className={style.removeFromCartBtn}
                   onClick={() => removeFromCart(item.id)}

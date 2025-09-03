@@ -134,3 +134,7 @@
   line-height: 1.2; /* 줄 간격 줄이기 */
   max-height: calc(1.2em * 2); /* line-height * 줄 수 */
 }
+.menuQuantity {
+  font-size: 17px;
+  font-weight: 400;
+}
