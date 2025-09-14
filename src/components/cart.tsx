@@ -3,6 +3,8 @@ import { useCartStore } from "@/store/cartStore";
 import style from "./cart.module.css";
 import Image from "next/image";
 import { useCartUiStore } from "@/store/cartUiStore";
+import { useEffect, useState } from "react";
+import { useStompClient } from "@/hooks/useStompClient";
 
 export default function Cart() {
   const {
@@ -13,6 +15,33 @@ export default function Cart() {
     decreaseQuantity,
   } = useCartStore();
   const { open, closeCart } = useCartUiStore();
+  const { isConnected, connectStomp } = useStompClient();
+
+  const handleShare = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_CAFE_API_SERVER_URL}/carts`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ cafeId: "mmth", name: "" }),
+        }
+      );
+
+      if (!response.ok) {
+        alert("방 생성 중 오류 발생");
+        return;
+      }
+
+      const cartId: string = await response.json();
+      console.log("방생성 완료, cartId:", cartId);
+
+      // 2. 소켓 연결 시도 (없으면)
+      connectStomp(cartId);
+    } catch (error) {
+      console.error("🚨 공유하기 오류:", error);
+    }
+  };
 
   // cart의 모든 quantity의 합
   const totalQuantity = cart.reduce((sum, item) => {
@@ -73,7 +102,9 @@ export default function Cart() {
             ))
           )}
         </div>
-        <button className={style.shareCart}>공유하기</button>
+        <button className={style.shareCart} onClick={handleShare}>
+          공유하기
+        </button>
       </div>
     </>
   );
